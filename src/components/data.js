@@ -143,7 +143,7 @@ export const restaurant = [
     category: "Birthday Restaurant",
   },
   {
-    _id: "jicdvhdjs345",
+    _id: "jicdvhddddjs345",
     image: y2,
     nameOfRestaurant: "VIP Restaurant",
     location: "Konyokonyo , Juba South Sudan",
