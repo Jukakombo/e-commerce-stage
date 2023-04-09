@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import { RiRestaurant2Fill } from "react-icons/ri";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+// import { FaHome } from "react-icons/fa ";
+// import { BiRestaurant } from "react-icons/bi ";
+// import { IoFastFood } from "react-icons/io ";
+// import { FcAbout } from "react-icons/fc ";
+// import { BiHelpCircle } from "react-icons/bi ";
+// import { BiLogIn } from "react-icons/bi ";
+// import { SiGnuprivacyguard } from "react-icons/si ";
+// import { AiOutlineSetting } from "react-icons/ai";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,29 +39,41 @@ function Navigation() {
     {
       name: "Home",
       id: "012",
+      // icon: <FaHome />,
     },
     {
       name: "Restaurants",
+      // icon: <IoFastFood />,
       id: "0342",
     },
     {
       name: "Foods",
+      // icon: <BiRestaurant />,
       id: "0DFS12",
     },
     {
       name: "About Us",
+      // icon: <FcAbout />,
       id: "0EF12",
     },
     {
       name: "Help",
+      // icon: <BiHelpCircle />,
       id: "00012",
     },
     {
       name: "Login",
+      // icon: <BiLogIn />,
       id: "0001xss2",
     },
     {
       name: "Sign Up",
+      // icon: <SiGnuprivacyguard />,
+      id: "0001sskl2",
+    },
+    {
+      name: "Setting",
+      // icon: <AiOutlineSetting />,
       id: "0001sskl2",
     },
   ];
@@ -90,9 +110,10 @@ function Navigation() {
         </div>
       </div>
       {isOpen && (
-        <div className="mobile_navigation md:hidden w-11/12 m-auto text_navigation   py-2">
+        <div className="mobile_navigation md:hidden w-11/12 m-auto text_navigation h-[100vh]  py-2">
           {mobileNavs.map((x) => (
             <ul key={x.id} className="list-style-none">
+              {/* {icon} */}
               <li
                 className="md:m-4 text-xl my-4  hover:bg-[#44bba4] cursor-pointer rounded-[15px] py-2 hover:text-white px-2 "
                 onClick={closeMenu}
