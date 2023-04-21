@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 /* navigation */
+.primaryBG {
+  background: #44bba4;
+}
 .navigation {
   background: #ffffff;
   box-shadow: 0px 4px 30px rgba(10, 9, 8, 0.05);
@@ -55,6 +58,33 @@
   background: #ffffff;
   box-shadow: 0px 5px 50px rgba(0, 67, 101, 0.08);
   border-radius: 25px;
+}
+/* reservation */
+.album {
+  background: #ffffff;
+  box-shadow: 0px 5px 50px rgba(0, 67, 101, 0.08);
+  border-radius: 36px;
+}
+/* select form */
+.select__form {
+  background: #ffffff;
+  box-shadow: 0px 5px 50px rgba(0, 67, 101, 0.08);
+  border-radius: 25px;
+}
+.button__1 {
+  @apply text-white bg-[#44BBA4] p-2 px-4 rounded;
+}
+.max__width {
+  @apply w-11/12 m-auto;
+}
+.card_man_fiver {
+  background: #ffffff;
+  box-shadow: 0px 5px 50px rgba(0, 67, 101, 0.08);
+  border-radius: 25px;
+  margin-top: 10px;
+}
+.primaryColor {
+  @apply text-[#44BBA4];
 }
 @media screen and (max-width: 768px) {
   .primary_button {

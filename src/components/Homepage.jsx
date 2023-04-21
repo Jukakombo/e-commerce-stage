@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import home from "../assets/home.svg";
 import { ImLocation2 } from "react-icons/im";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineLocationCity } from "react-icons/md";
+// import { ContextAPI } from "../utils/contextAPI";
 function Homepage() {
+  // const { formData, setFormData } = useContext(ContextAPI);
+  const searchRestaurant = (e) => {
+    e.preventDefault();
+    //
+  };
   return (
-    <div className="w-11/12 m-auto">
+    <div className="w-11/12 m-auto pt-8">
       <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 ">
         <div className="md:py-24">
           <div className="flex items-center">
-            <ImLocation2 size={15} className="text-[#44BBA4] mr-2" />
-            <p className="text-[#44BBa4]">at Tongping, Juba South Sudan</p>
+            <ImLocation2 size={15} className="text-[#44BBA4] mr-2 " />
+            <p className="text-[#44BBa4] ">at Tongping, Juba South Sudan</p>
           </div>
           <h1 className="md:text-4xl font-bold py-4">
             Discover your Next Food
@@ -24,16 +30,16 @@ function Homepage() {
           <div className=" py-16 ">
             <div className="home p-4  ">
               <form
-                onSubmit={{}}
+                onSubmit={searchRestaurant}
                 className="md:flex items-center justify-between "
               >
                 <div className="">
-                  <div className="flex items-center">
+                  <div className="flex items-center sm:border-b border-Gray-400 md:border-none  border-2">
                     <BiSearch size={20} className="text-gray-400" />
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="outline-none sm:py-4 md:-0"
+                      className="outline-none sm:py-4 md:-0 flex-1 mb-3 "
                     />
                   </div>
                 </div>
@@ -44,7 +50,9 @@ function Homepage() {
                       className="text-gray-400"
                     />
                     <select name="" id="" className="outline-none mr-2 ">
-                      <option value="">...Cities</option>
+                      <option value="" className="bg-none">
+                        ...Cities
+                      </option>
                       <option value="Juba">Juba</option>
                       <option value="Wau">Wau</option>
                       <option value="Malakal">Malakal</option>
@@ -53,6 +61,7 @@ function Homepage() {
                       <option value="Jongolei">Jongolei</option>
                       <option value="Warap">Warap</option>
                       <option value="Aweil">Aweil</option>
+                      <option value="Kuajok">Kuajok</option>
                       <option value="Lake State">Lake State</option>
                     </select>
                   </div>

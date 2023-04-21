@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { RiRestaurant2Fill } from "react-icons/ri";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-// import { FaHome } from "react-icons/fa ";
-// import { BiRestaurant } from "react-icons/bi ";
-// import { IoFastFood } from "react-icons/io ";
-// import { FcAbout } from "react-icons/fc ";
-// import { BiHelpCircle } from "react-icons/bi ";
-// import { BiLogIn } from "react-icons/bi ";
-// import { SiGnuprivacyguard } from "react-icons/si ";
-// import { AiOutlineSetting } from "react-icons/ai";
+import home from "../assets/icons/house.png";
+import restau from "../assets/icons/food.png";
+import fastfood from "../assets/icons/fast-food.png";
+import aboutus from "../assets/icons/group.png";
+import help from "../assets/icons/help.png";
+import login from "../assets/icons/setting.png";
+import setting from "../assets/icons/setting.png";
+import signup from "../assets/icons/user.png";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,41 +39,41 @@ function Navigation() {
     {
       name: "Home",
       id: "012",
-      // icon: <FaHome />,
+      icon: home,
     },
     {
       name: "Restaurants",
-      // icon: <IoFastFood />,
+      icon: restau,
       id: "0342",
     },
     {
       name: "Foods",
-      // icon: <BiRestaurant />,
+      icon: fastfood,
       id: "0DFS12",
     },
     {
       name: "About Us",
-      // icon: <FcAbout />,
+      icon: aboutus,
       id: "0EF12",
     },
     {
       name: "Help",
-      // icon: <BiHelpCircle />,
+      icon: help,
       id: "00012",
     },
     {
       name: "Login",
-      // icon: <BiLogIn />,
+      icon: login,
       id: "0001xss2",
     },
     {
       name: "Sign Up",
-      // icon: <SiGnuprivacyguard />,
+      icon: signup,
       id: "0001sskl2",
     },
     {
       name: "Setting",
-      // icon: <AiOutlineSetting />,
+      icon: setting,
       id: "0001sskl2",
     },
   ];
@@ -115,10 +115,11 @@ function Navigation() {
             <ul key={x.id} className="list-style-none">
               {/* {icon} */}
               <li
-                className="md:m-4 text-xl my-4  hover:bg-[#44bba4] cursor-pointer rounded-[15px] py-2 hover:text-white px-2 "
+                className="md:m-4 text-xl my-4  hover:bg-[#7aa59d] cursor-pointer rounded-[15px] py-2 hover:text-white px-2 flex items-center "
                 onClick={closeMenu}
               >
-                {x.name}{" "}
+                <img src={x.icon} alt="icon" className="w-[40px] mr-4" />
+                {x.name}
               </li>
             </ul>
           ))}

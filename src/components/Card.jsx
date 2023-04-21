@@ -5,7 +5,7 @@ function Card({ data }) {
   return (
     <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 md:text-sm lg:text-xl sm:text-xs">
       {data.map((x) => (
-        <div key={x._id} className="card p-4">
+        <div key={x._id} className="card p-4 relative">
           <img
             className=" w-[100%] h-[220px] pb-4 rounded-[15px]"
             src={x.image}
@@ -29,6 +29,13 @@ function Card({ data }) {
               <AiOutlineInfoCircle size={20} />
               <h1 className="ml-2">{x.status}</h1>
             </div>
+          </div>
+          <div className="w-[40px] bg-white rounded-full absolute top-6 right-6 p-2">
+            {x.status == "Closed" ? (
+              <img src={x.icon1} alt="full" />
+            ) : (
+              <img src={x.icon2} alt="halfheart" />
+            )}
           </div>
         </div>
       ))}
