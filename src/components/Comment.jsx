@@ -36,7 +36,9 @@ function Comment() {
           placeholder="Please write your reviews here ..."
         ></textarea>
         <div className="text-center py-4">
-          <button className="button__1 w-[200px] ">Submit</button>
+          <button type="submit" className="button__1 w-[200px] ">
+            Submit
+          </button>
         </div>
       </form>
     </div>
