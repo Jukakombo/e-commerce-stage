@@ -10,6 +10,7 @@ import help from "../assets/icons/help.png";
 import login from "../assets/icons/setting.png";
 import setting from "../assets/icons/setting.png";
 import signup from "../assets/icons/user.png";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -93,13 +94,19 @@ function Navigation() {
         <div className="text_navigation md:flex hidden">
           {navlinks.map((x) => (
             <ul key={x.id} className="list-style-none">
-              <li className="md:m-2 md:py-4  xl:m-4 text-xl">{x.name} </li>
+              <Link to={`/${x.name}`}>
+                <li className="md:m-2 md:py-4  xl:m-4 text-xl">{x.name} </li>
+              </Link>
             </ul>
           ))}
         </div>
         <div className="text_navigation button_on_medium ">
-          <button className="md:m-4 text-[#44bba4]">Login</button>
-          <button className="primary_button">Sign Up</button>
+          <Link to="/login">
+            <button className="md:m-4 text-[#44bba4]">Login</button>
+          </Link>
+          <Link to="/register">
+            <button className="primary_button">Sign Up</button>
+          </Link>
         </div>
         <div className="md:hidden" onClick={openMenu}>
           {isOpen ? (
