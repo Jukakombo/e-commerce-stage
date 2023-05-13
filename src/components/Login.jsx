@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import register from "../assets/register (2).png";
 import { Link } from "react-router-dom";
+import Notification from "./Notification";
 function Login() {
   return (
     <div>
@@ -41,6 +42,7 @@ function Login() {
           <img src={register} alt="register" />
         </div>
       </div>
+      <Notification />
       <Footer />
     </div>
   );

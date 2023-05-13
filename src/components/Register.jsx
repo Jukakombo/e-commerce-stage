@@ -3,6 +3,7 @@ import Navigation from "./Navigation";
 import Footer from "./Footer";
 import register from "../assets/register (1).png";
 import { Link } from "react-router-dom";
+import Notification from "./Notification";
 function Register() {
   return (
     <div>
@@ -75,6 +76,7 @@ function Register() {
           <img src={register} alt="register" />
         </div>
       </div>
+      <Notification />
       <Footer />
     </div>
   );
