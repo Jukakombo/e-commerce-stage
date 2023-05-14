@@ -1,20 +1,28 @@
 import React from "react";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import { foodMenu } from "./data";
+// import { foodMenu } from "./data";
 import register from "../assets/register (2).png";
 import { Link, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Notification from "./Notification";
 function FoodDetail() {
+  const foodMenu = useSelector((state) => state.news);
   const params = useParams();
   const { id } = params;
+
   const food = foodMenu.find((x) => x._id === id);
-  console.log(food);
+
   return (
     <div>
       <Navigation />
       <div className="w-11/12 m-auto grid md:grid-cols-2 py-16">
         <div className=" w-full px-4 mb-8 lg:mb-0">
-          <img src={food?.image} alt={food?.name} className="w-full rounded" />
+          <img
+            src={food?.image}
+            alt={food?.foodName}
+            className="w-full rounded"
+          />
         </div>
         <div className=" ">
           <h1 className="text-2xl font-bold mb-4">{food?.name}</h1>
@@ -31,6 +39,7 @@ function FoodDetail() {
           </Link>
         </div>
       </div>
+      <Notification />
       <Footer />
     </div>
   );

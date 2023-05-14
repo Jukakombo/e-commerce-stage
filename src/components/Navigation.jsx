@@ -89,7 +89,9 @@ function Navigation() {
     <div className="navigation">
       <div className="mobile_views md:flex justify-between items-center w-11/12 m-auto  ">
         <div className="">
-          <RiRestaurant2Fill size={50} color={"#44bba4"} />
+          <Link to={"/"}>
+            <RiRestaurant2Fill size={50} color={"#44bba4"} />
+          </Link>
         </div>
         <div className="text_navigation md:flex hidden">
           {navlinks.map((x) => (

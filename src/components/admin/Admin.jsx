@@ -8,6 +8,7 @@ import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { BiRestaurant } from "react-icons/bi";
 import { Link, Outlet } from "react-router-dom";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
+import { MdOutlineCreate } from "react-icons/md";
 
 function Admin() {
   return (
@@ -51,6 +52,15 @@ function Admin() {
                 </span>
                 Orders
               </a>
+            </Link>
+            <Link
+              to="create-menu"
+              className="flex items-center px-4 py-2 hover:bg-gray-700"
+            >
+              <span className="mr-2">
+                <MdOutlineCreate />
+              </span>
+              Create Menu
             </Link>
             <Link
               to="reservations"
