@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Index from "./components/Index";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Reservation from "./components/Reservation";
 import Login from "./components/Login";
 import Menu1 from "./components/Menu";
@@ -24,6 +24,9 @@ import { useState } from "react";
 import { getNews } from "./actions/news";
 
 function App() {
+  const customer = localStorage.getItem("customerDetails");
+  const customerStorage = JSON.parse(customer);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNews());
@@ -34,7 +37,13 @@ function App() {
     if (!user) {
       return <Navigate to="/login" />;
     }
+    return children;
+  };
 
+  const ProtectedRoute2 = ({ children }) => {
+    if (!customerStorage) {
+      return <Navigate to="/Foods" />;
+    }
     return children;
   };
   return (
@@ -49,7 +58,16 @@ function App() {
         <Route path="/food-detail/:id" exact element={<FoodDetail />} />
         <Route path="/about Us" exact element={<About />} />
         <Route path="/checkout" exact element={<CheckoutDetail />} />
-        <Route path="/payment" exact element={<PaymentScreen />} />
+        <Route
+          path="/payment"
+          exact
+          element={
+            // <ProtectedRoute2>
+            <PaymentScreen />
+            // </ProtectedRoute2>
+          }
+        />
+
         <Route path="/confirm" exact element={<ConfirmOrder />} />
 
         <Route

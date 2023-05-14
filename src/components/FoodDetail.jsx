@@ -12,7 +12,9 @@ function FoodDetail() {
   const { id } = params;
 
   const food = foodMenu.find((x) => x._id === id);
-
+  const orderNow = () => {
+    localStorage.setItem("orders", JSON.stringify(food));
+  };
   return (
     <div>
       <Navigation />
@@ -28,9 +30,10 @@ function FoodDetail() {
           <h1 className="text-2xl font-bold mb-4">{food?.name}</h1>
           <p className="font-bold ">Description:</p>
           <p className="text-lg mb-4">{food?.description}</p>
-          <p className="text-lg font-bold mb-4">Price: {food?.price}</p>
-          <Link to="/checkout">
+          <p className="text-lg font-bold mb-4">Price $: {food?.price}</p>
+          <Link to="/checkout" onClick={orderNow}>
             <button
+              onClick={orderNow}
               className="primary_button hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               // disabled={!food?.inStock}
             >
