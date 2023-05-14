@@ -3,6 +3,7 @@ import home from "../assets/home.svg";
 import { ImLocation2 } from "react-icons/im";
 import { BiSearch } from "react-icons/bi";
 import { MdOutlineLocationCity } from "react-icons/md";
+import { Link } from "react-router-dom";
 // import { ContextAPI } from "../utils/contextAPI";
 function Homepage() {
   // const { formData, setFormData } = useContext(ContextAPI);
@@ -65,9 +66,11 @@ function Homepage() {
                       <option value="Lake State">Lake State</option>
                     </select>
                   </div>
-                  <button className="primary_button bg-[#44BBA4] text-white">
-                    Book
-                  </button>
+                  <Link to="/Foods">
+                    <button className="primary_button bg-[#44BBA4] text-white">
+                      Book
+                    </button>
+                  </Link>
                 </div>
               </form>
             </div>

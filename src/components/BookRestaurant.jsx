@@ -3,6 +3,7 @@ import { FiUser } from "react-icons/fi";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 import { FcOvertime } from "react-icons/fc";
+import { Link } from "react-router-dom";
 function BookRestaurant() {
   const [count, setCount] = useState(0);
   const increase = () => {
@@ -60,7 +61,10 @@ function BookRestaurant() {
             </div>
           </div>
           <div className="">
-            <button className="button__1">Book</button>
+            <Link to="/Foods">
+              {" "}
+              <button className="button__1">Book</button>
+            </Link>
           </div>
         </div>
       </form>

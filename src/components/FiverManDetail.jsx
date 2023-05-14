@@ -58,7 +58,7 @@ function FiverManDetail() {
           ))}
         </div>
         <div className="text-center py-4">
-          <Link to={"/Food"}>
+          <Link to={"/Foods"}>
             <button className="button__1 ">View All</button>
           </Link>
         </div>

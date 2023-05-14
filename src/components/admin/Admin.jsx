@@ -14,7 +14,7 @@ function Admin() {
   return (
     <>
       <Navigation />
-      <div className="flex h-screen">
+      <div className="flex h-screen border-t-2 border-black-900">
         {/* Sidebar */}
         <div className="bg-gray-800 text-white w-64 flex-shrink-0">
           <div className="p-4">

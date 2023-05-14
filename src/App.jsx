@@ -22,14 +22,18 @@ import CreateMenu from "./components/admin/CreateMenu";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { getNews } from "./actions/news";
+import { getContacts } from "./actions/contacts";
+import Loading1 from "./components/Loading";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const customer = localStorage.getItem("customerDetails");
   const customerStorage = JSON.parse(customer);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNews());
+    dispatch(getContacts());
   }, [dispatch]);
   const [user, setUser] = useState(true);
 
@@ -40,54 +44,66 @@ function App() {
     return children;
   };
 
-  const ProtectedRoute2 = ({ children }) => {
-    if (!customerStorage) {
-      return <Navigate to="/Foods" />;
-    }
-    return children;
-  };
+  // const ProtectedRoute2 = ({ children }) => {
+  //   if (!customerStorage) {
+  //     return <Navigate to="/Foods" />;
+  //   }
+  //   return children;
+  // };
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, []);
   return (
-    <div className="max-w-screen-2xl m-auto">
-      <Routes>
-        <Route path="/" exact element={<Index />} />
-        <Route path="/Home" element={<Index />} />
-        <Route path="/Restaurants" exact element={<Reservation />} />
-        <Route path="/Foods" exact element={<Menu1 />} />
-        <Route path="/login" exact element={<Login />} />
-        <Route path="/register" exact element={<Register />} />
-        <Route path="/food-detail/:id" exact element={<FoodDetail />} />
-        <Route path="/about Us" exact element={<About />} />
-        <Route path="/checkout" exact element={<CheckoutDetail />} />
-        <Route
-          path="/payment"
-          exact
-          element={
-            // <ProtectedRoute2>
-            <PaymentScreen />
-            // </ProtectedRoute2>
-          }
-        />
+    <div className="">
+      {loading ? (
+        <Loading1 />
+      ) : (
+        <div className="max-w-screen-2xl m-auto">
+          <Routes>
+            <Route path="/" exact element={<Index />} />
+            <Route path="/Home" element={<Index />} />
+            <Route path="/Restaurants" exact element={<Reservation />} />
+            <Route path="/Foods" exact element={<Menu1 />} />
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/register" exact element={<Register />} />
+            <Route path="/food-detail/:id" exact element={<FoodDetail />} />
+            <Route path="/about Us" exact element={<About />} />
+            <Route path="/checkout" exact element={<CheckoutDetail />} />
+            <Route
+              path="/payment"
+              exact
+              element={
+                // <ProtectedRoute2>
+                <PaymentScreen />
+                // </ProtectedRoute2>
+              }
+            />
 
-        <Route path="/confirm" exact element={<ConfirmOrder />} />
+            <Route path="/confirm" exact element={<ConfirmOrder />} />
 
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        >
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="menu" element={<Menu />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="restaurant" element={<Restaurant />} />
-          <Route path="reservations" element={<Reservation2 />} />
-          <Route path="create-menu" element={<CreateMenu />} />
-        </Route>
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <Admin />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="menu" element={<Menu />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="restaurant" element={<Restaurant />} />
+              <Route path="reservations" element={<Reservation2 />} />
+              <Route path="create-menu" element={<CreateMenu />} />
+            </Route>
 
-        <Route path="/Help" exact element={<Help />} />
-      </Routes>
+            <Route path="/Help" exact element={<Help />} />
+          </Routes>
+        </div>
+      )}
     </div>
   );
 }

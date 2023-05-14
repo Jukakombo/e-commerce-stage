@@ -8,7 +8,7 @@ function Card({ data }) {
         <div key={x._id} className="card p-4 relative">
           <img
             className=" w-[100%] h-[220px] pb-4 rounded-[15px]"
-            src={x.image?.asset?.url}
+            src={x?.image}
             alt="restaurant"
           />
           <h1 className="text-xl">{x?.restaurant}</h1>
@@ -23,7 +23,6 @@ function Card({ data }) {
               <h1 className="ml-2 sm:text-normal md:text-sm lg:text-xl sm:text-xs">
                 {x.typeOfRestaurant}
               </h1>
-              a
             </div>
             <div className="flex items-center">
               <AiOutlineInfoCircle size={20} />

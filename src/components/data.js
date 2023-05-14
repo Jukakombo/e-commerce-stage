@@ -88,7 +88,7 @@ export const category = [
 ];
 
 // popular data
-export const populaerData = [
+export const popularData = [
   {
     _id: "hjdhje344FEdfvvF4F",
     image: rest1,
