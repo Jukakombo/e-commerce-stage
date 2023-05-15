@@ -85,11 +85,7 @@ function App() {
 
             <Route
               path="/admin"
-              element={
-                // <ProtectedRoute>
-                <Admin user={user} setUser={setUser} />
-                // </ProtectedRoute>
-              }
+              element={<Admin user={user} setUser={setUser} />}
             >
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="menu" element={<Menu />} />

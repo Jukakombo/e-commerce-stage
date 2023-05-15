@@ -6,7 +6,7 @@ import { GoDashboard } from "react-icons/go";
 import { BsMenuApp } from "react-icons/bs";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { BiRestaurant } from "react-icons/bi";
-import { Link, Navigate, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
 import { MdOutlineCreate } from "react-icons/md";
 import { useState } from "react";
@@ -15,10 +15,11 @@ import { useDispatch } from "react-redux";
 
 function Admin({ user, setUser }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const logout = () => {
     dispatch({ type: "LOGOUT" });
-    <Navigate to="/" />;
+    navigate("/");
     setUser(null);
   };
 

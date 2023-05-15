@@ -1,6 +1,9 @@
 import React from "react";
 
 function Notification() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="bg-[#44bba4] py-4">
       <div className="w-11/12 m-auto md:flex py-8 grid md:grid-cols-2  items-center md:justify-between">
@@ -14,7 +17,7 @@ function Notification() {
         </div>
         <div className="bg-white rounded ">
           <form
-            onSubmit={{}}
+            onSubmit={handleSubmit}
             className="items-center flex grid md:grid-cols-2 p-4  "
           >
             <input
