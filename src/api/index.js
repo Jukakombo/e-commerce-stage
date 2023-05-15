@@ -1,7 +1,7 @@
 // https://certificate-management-system.onrender.com/
 import axios from "axios";
 const API = axios.create({
-  baseURL: "https://stage-backend-mongodb.onrender.com/",
+  baseURL: "https://stage-backend-mongodb.onrender.com",
 });
 // https://y2y.onrender.com
 // process.env.REACT_APP_CLIENT_DATABASE

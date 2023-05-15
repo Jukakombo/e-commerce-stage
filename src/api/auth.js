@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://stage-backend-mongodb.onrender.com/",
+  baseURL: "https://stage-backend-mongodb.onrender.com",
 });
 // https://y2y.onrender.com
 API.interceptors.request.use((req) => {
