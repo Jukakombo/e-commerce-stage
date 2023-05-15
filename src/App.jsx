@@ -19,7 +19,7 @@ import Menu from "./components/admin/Menu";
 import Reservation2 from "./components/admin/Reservation";
 import Restaurant from "./components/admin/Restaurant";
 import CreateMenu from "./components/admin/CreateMenu";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getNews } from "./actions/news";
 import { getContacts } from "./actions/contacts";
@@ -29,13 +29,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   const customer = localStorage.getItem("customerDetails");
   const customerStorage = JSON.parse(customer);
-
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getNews());
     dispatch(getContacts());
   }, [dispatch]);
-  const [user, setUser] = useState(true);
 
   const ProtectedRoute = ({ children }) => {
     if (!user) {
@@ -87,9 +86,9 @@ function App() {
             <Route
               path="/admin"
               element={
-                <ProtectedRoute>
-                  <Admin />
-                </ProtectedRoute>
+                // <ProtectedRoute>
+                <Admin user={user} setUser={setUser} />
+                // </ProtectedRoute>
               }
             >
               <Route path="dashboard" element={<Dashboard />} />

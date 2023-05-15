@@ -6,11 +6,27 @@ import { GoDashboard } from "react-icons/go";
 import { BsMenuApp } from "react-icons/bs";
 import { faUtensils } from "@fortawesome/free-solid-svg-icons";
 import { BiRestaurant } from "react-icons/bi";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { BsFillTicketPerforatedFill } from "react-icons/bs";
 import { MdOutlineCreate } from "react-icons/md";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-function Admin() {
+function Admin({ user, setUser }) {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    <Navigate to="/" />;
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+    // jwt for manual
+    setUser(JSON.parse(localStorage.getItem("profile")));
+  }, [location]);
   return (
     <>
       <Navigation />
@@ -87,18 +103,18 @@ function Admin() {
           <div className="py-4 px-6 bg-white flex justify-between items-center border-b-4 border-gray-300">
             <h1 className="text-2xl font-bold">Dashboard</h1>
             <div className="flex items-center">
-              <button className="mr-4">
-                <FontAwesomeIcon icon={faUtensils} />
-              </button>
-              <button>
-                <img
-                  src="https://picsum.photos/200/200"
-                  alt="Profile"
-                  className="rounded-full w-8 h-8"
-                />
-              </button>
+              <h1>
+                Hi {user?.result?.name}{" "}
+                {user && (
+                  <button onClick={logout} className="primary_button">
+                    Logout
+                  </button>
+                )}
+              </h1>
+              <button className="mr-4"></button>
             </div>
           </div>
+
           <div className="flex-1 p-6">
             <Outlet />
           </div>

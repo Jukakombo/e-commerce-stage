@@ -42,7 +42,6 @@ function Login() {
                 })
               }
               required
-              id=""
               placeholder="Email"
               className="outline-none border-2 border-gray-100 my-2 p-2"
             />
@@ -57,7 +56,6 @@ function Login() {
                 })
               }
               required
-              id=""
               placeholder="Password"
               className="outline-none border-2 border-gray-100 my-2 p-2"
             />
